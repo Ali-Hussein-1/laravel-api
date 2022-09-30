@@ -30,6 +30,33 @@ class TestController extends Controller
             "message" => $message
         ]);
 }
+
+    function api4($str){
+        $arr = explode(" ",$str);
+
+        
+        if($arr[0] == "+"){
+            $res = (int)$arr[1] + (int)$arr[2];
+        }
+        if($arr[0] == "-"){
+            $res = (int)$arr[1] - (int)$arr[2];
+        }
+        if($arr[0] == "*"){
+            $res = (int)$arr[1] * (int)$arr[2];
+        }
+        if($arr[0] == "**"){
+            $res = (int)$arr[1] ** (int)$arr[2];
+        }
+        if($arr[0] == "%"){
+            $res = (int)$arr[1] % (int)$arr[2];
+        }
+
+        $message = $res;
+
+        return response()->json([
+            "status" => "Success",
+            "message" => $message]);
+    }
 }
 
 ?>
