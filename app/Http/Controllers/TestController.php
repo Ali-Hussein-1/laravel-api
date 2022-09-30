@@ -73,6 +73,22 @@ class TestController extends Controller
             "status" => "Success",
             "message" => $message]);
     }
-}
+    function api1($str){
+        $res = "";
+        $str1 = 'aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789';
+        for ($i = 0;$i<strlen($str1);$i++){
+            for ($j = 0;$j<strlen($str);$j++){
+                if ($str[$j] == $str1[$i])
+                $res = $res . $str[$j];
+            }
+        }
+        $message = $res;
+        return response()->json([
+            'status' => "Success",
+            'message' => $message]);
+        
+        }
+
+    }
 
 ?>
