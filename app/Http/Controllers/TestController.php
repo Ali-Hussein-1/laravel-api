@@ -57,6 +57,22 @@ class TestController extends Controller
             "status" => "Success",
             "message" => $message]);
     }
+
+    function api3($str){
+        $string  = "";
+        for($i = 0 ; $i <strlen($str) ; $i++){
+            if(is_numeric($str[$i])){
+                $string = $string . $str[$i];
+            }
+
+        }
+
+        $message = decbin($string);
+
+        return response()->json([
+            "status" => "Success",
+            "message" => $message]);
+    }
 }
 
 ?>
